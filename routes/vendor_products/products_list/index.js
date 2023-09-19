@@ -6,7 +6,7 @@ const router = express.Router()
 
 /**
      * @openapi
-     * '/api/vendor_products/get_products_list':
+     * '/api/vendor_products/get_product_list':
      *  post:
      *     tags:
      *     - Get product list by vendor
@@ -54,10 +54,10 @@ const router = express.Router()
      *      
      */
 
-router.post('/get_products_list', async (req,res) => {
+router.post('/get_product_list', async (req,res) => {
     let body = req.body
     console.log(body)
-    let response = await myAxios.post('https://dev.pas.sdvor.com/api/vendor_products/get_product_list', body)
+    let response = await myAxios.post(process.env.LINK+req.path, body)
     res.send(response.data)
 })
 

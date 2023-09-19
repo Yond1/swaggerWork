@@ -51,7 +51,7 @@ const router = express.Router()
 router.post('/get_vendors', async (req,res) => {
     let body = await req.body
     console.log(body)
-    let response = await myAxios.post('https://dev.pas.sdvor.com/api/vendor_products/get_vendors', body)
+    let response = await myAxios.post(process.env.LINK+req.path, body)
     res.send(response.data)
 })
 
